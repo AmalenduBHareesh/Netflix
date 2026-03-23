@@ -1,0 +1,81 @@
+{% load static %}
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url("{% static 'images/netfliximage.jpg' %}") no-repeat center center/cover;
+        height: 100vh;
+    }
+
+
+    .overlay {
+        background: rgba(0,0,0,0.7);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .signup-box {
+        background: rgba(0,0,0,0.85);
+        padding: 40px;
+        width: 320px;
+        border-radius: 8px;
+        color: white;
+    }
+
+    .signup-box h2 {
+        margin-bottom: 20px;
+    }
+
+    .signup-box input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: none;
+        border-radius: 4px;
+        background: #333;
+        color: white;
+        font-size: 14px;
+    }
+
+    .signup-box input::placeholder {
+        color: #aaa;
+    }
+
+    .signup-box button {
+        width: 100%;
+        padding: 12px;
+        background: #e50914;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .signup-box button:hover {
+        background: #f6121d;
+    }
+</style>
+
+<div class="overlay">
+    <form method="POST" class="signup-box">
+        {% csrf_token %}
+
+        <h2>Sign Up</h2>
+
+        <input type="email" name="email" placeholder="Email Address">
+
+        <input type="text" name="username" placeholder="Username">
+
+        <input type="password" name="password" placeholder="Password">
+
+        <input type="password" name="password2" placeholder="Repeat Password">
+
+        <button type="submit">Get Started</button>
+    </form>
+</div>
