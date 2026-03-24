@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url("{% static 'images/netfliximage.jpg' %}") no-repeat center center/cover;
+            height: 100vh;
+        }
+
+        .overlay {
+            background: rgba(0,0,0,0.7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: rgba(0,0,0,0.85);
+            padding: 40px;
+            width: 320px;
+            border-radius: 8px;
+            color: white;
+            box-shadow: 0 0 20px rgba(229,9,20,0.4);
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: white;
+            font-size: 14px;
+        }
+
+        .login-box input::placeholder {
+            color: #aaa;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #e50914;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-box button:hover {
+            background: #f6121d;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .signup-link a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="overlay">
+    <form method="POST" class="login-box">
+        {% csrf_token %}
+
+        <h2>Sign In</h2>
+
+        <input type="text" name="username" placeholder="Username">
+
+        <input type="password" name="password" placeholder="Password">
+
+        <button type="submit">Login</button>
+
+        <div class="signup-link">
+            <p>New here? <a href="{% url 'signup' %}">Sign up</a></p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

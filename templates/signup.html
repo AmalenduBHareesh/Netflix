@@ -11,7 +11,7 @@
 
 
     .overlay {
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         height: 100%;
         display: flex;
         justify-content: center;
@@ -19,7 +19,7 @@
     }
 
     .signup-box {
-        background: rgba(0,0,0,0.85);
+        background: rgba(0, 0, 0, 0.85);
         padding: 40px;
         width: 320px;
         border-radius: 8px;
@@ -60,6 +60,20 @@
     .signup-box button:hover {
         background: #f6121d;
     }
+
+    .login-link {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .login-link a {
+        color: #aaa;
+        text-decoration: none;
+    }
+
+    .login-link a:hover {
+        color: white;
+    }
 </style>
 
 <div class="overlay">
@@ -77,5 +91,8 @@
         <input type="password" name="password2" placeholder="Repeat Password">
 
         <button type="submit">Get Started</button>
+        <div class="login-link">
+            <p>Already a User? <a href="{% url 'userlogin' %}">Login</a></p>
+        </div>
     </form>
 </div>
