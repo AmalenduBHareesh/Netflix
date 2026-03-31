@@ -6,7 +6,7 @@ from django.conf import settings
 class Genre(models.Model):
     GENRE_CHOICES=models.CharField(primary_key=True,max_length=100)
     def __str__(self):
-        return self.GENRE_CHOICES
+        return self.name
     
 class Movie(models.Model):
     uu_id=models.UUIDField(default=uuid.uuid4)
